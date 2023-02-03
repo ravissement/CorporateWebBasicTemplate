@@ -77,9 +77,9 @@ public class RecruitController {
 		if(resultMessage != null) {
 			response.sendRedirect("/cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(resultMessage, "UTF-8"));
 		}
-    }
+	}
 	
-    /**
+	/**
 	 * 인재상을 조회한다.
 	 * @return "home"
 	 * @exception Exception
@@ -113,10 +113,10 @@ public class RecruitController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 
-		List<?> sampleList = recruitService.selectRecruitListAdmin(searchVO);
+		List<?> sampleList = recruitService.selectRecruitList(searchVO);
 		model.addAttribute("resultList", sampleList);
 
-		int totCnt = recruitService.selectRecruitListTotCntAdmin(searchVO);
+		int totCnt = recruitService.selectRecruitListTotCnt(searchVO);
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
 		return "recruit/information";
@@ -138,71 +138,7 @@ public class RecruitController {
 	}
 	
 	/**
-	 * 글 등록 화면을 조회한다.
-	 * @param searchVO - 목록 조회조건 정보가 담긴 VO
-	 * @param model
-	 * @return "informationRegister"
-	 * @exception Exception
-	 */
-	@RequestMapping(value = "/addInformation.do", method = RequestMethod.GET)
-	public String addInformationView(@ModelAttribute("searchVO") SearchVO searchVO, Model model) throws Exception {
-		model.addAttribute("recruitVO", new RecruitVO());
-		return "recruit/informationRegister";
-	}
-	
-	/**
-	 * 글을 등록한다.
-	 * @param recruitVO - 등록할 정보가 담긴 VO
-	 * @param searchVO - 목록 조회조건 정보가 담긴 VO
-	 * @param status
-	 * @return "forward:/information.do"
-	 * @exception Exception
-	 */
-	@RequestMapping(value = "/addInformation.do", method = RequestMethod.POST)
-	public String addInformation(@ModelAttribute("searchVO") SearchVO searchVO, RecruitVO recruitVO, BindingResult bindingResult, Model model, SessionStatus status)
-			throws Exception {
-		
-		// Server-Side Validation
-		beanValidator.validate(recruitVO, bindingResult);
-		if (bindingResult.hasErrors()) {
-			model.addAttribute("recruitVO", recruitVO);
-			return "recruit/informationRegister";
-		}
-		
-		// File Upload
-		if (!recruitVO.getAttachFile().isEmpty()) {
-			HashMap<String, String> fileName  = new HashMap<String, String>();
-			fileName = fileService.saveFile(recruitVO.getAttachFile(), path);
-			if(fileName.get("error") != null) {
-        		return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
-        	}
-        	recruitVO.setAttachOriName(fileName.get("oriName"));
-        	recruitVO.setAttachSaveName(fileName.get("saveName"));
-		}
-		
-        recruitService.insertRecruit(recruitVO);
-		status.setComplete();
-		return "forward:/recruit/information.do";
-	}
-	
-	/**
-	 * 글 수정화면을 조회한다.
-	 * @param id - 수정할 글 id
-	 * @param searchVO - 목록 조회조건 정보가 담긴 VO
-	 * @param model
-	 * @return "informationRegister"
-	 * @exception Exception
-	 */
-	@RequestMapping("/updateInformationView.do")
-	public String updateInformationView(@RequestParam("selectedId") String idx, @ModelAttribute("searchVO") SearchVO searchVO, Model model) throws Exception {
-		RecruitVO recruitVO = new RecruitVO();
-		recruitVO.setIdx(idx);
-		model.addAttribute(selectRecruit(recruitVO, searchVO));
-		return "recruit/informationRegister";
-	}
-
-	/**
-	 * 글을 조회한다.
+	 * 채용안내글을 조회한다.
 	 * @param recruitVO - 조회할 정보가 담긴 VO
 	 * @param searchVO - 목록 조회조건 정보가 담긴 VO
 	 * @param status
@@ -212,55 +148,4 @@ public class RecruitController {
 	public RecruitVO selectRecruit(RecruitVO recruitVO, @ModelAttribute("searchVO") SearchVO searchVO) throws Exception {
 		return recruitService.selectRecruit(recruitVO);
 	}
-
-	/**
-	 * 글을 수정한다.
-	 * @param recruitVO - 수정할 정보가 담긴 VO
-	 * @param searchVO - 목록 조회조건 정보가 담긴 VO
-	 * @param status
-	 * @return "forward:/information.do"
-	 * @exception Exception
-	 */
-	@RequestMapping("/updateInformation.do")
-	public String updateInformation(@ModelAttribute("searchVO") SearchVO searchVO, RecruitVO recruitVO, BindingResult bindingResult, Model model, SessionStatus status)
-			throws Exception {
-
-		// Server-Side Validation
-		beanValidator.validate(recruitVO, bindingResult);
-		if (bindingResult.hasErrors()) {
-			model.addAttribute("sampleVO", recruitVO);
-			return "recruit/informationRegister";
-		}
-		
-		// File Upload
-		if (!recruitVO.getAttachFile().isEmpty()) {
-			HashMap<String, String> fileName  = new HashMap<String, String>();
-        	fileName = fileService.saveFile(recruitVO.getAttachFile(), path);
-        	if(fileName.get("error") != null) {
-        		return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
-        	}
-        	recruitVO.setAttachOriName(fileName.get("oriName"));
-        	recruitVO.setAttachSaveName(fileName.get("saveName"));
-		}
-
-		recruitService.updateRecruit(recruitVO);
-		status.setComplete();
-		return "forward:/recruit/information.do";
-	}
-
-	/**
-	 * 글을 삭제한다.
-	 * @param recruitVO - 삭제할 정보가 담긴 VO
-	 * @param searchVO - 목록 조회조건 정보가 담긴 VO
-	 * @param status
-	 * @return "forward:/information.do"
-	 * @exception Exception
-	 */
-	@RequestMapping("/deleteInformation.do")
-	public String deleteInformation(RecruitVO recruitVO, @ModelAttribute("searchVO") SearchVO searchVO, SessionStatus status) throws Exception {
-		recruitService.deleteRecruit(recruitVO);
-		status.setComplete();
-		return "forward:/recruit/information.do";
-	}
-
 }
