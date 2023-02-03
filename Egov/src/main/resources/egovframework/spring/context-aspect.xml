@@ -16,7 +16,6 @@
 		<property name="exceptionHandlerService">
 			<list>
 				<ref bean="defaultExceptionHandleManager" />
-				<ref bean="otherExceptionHandleManager" />
 			</list>
 		</property>
 	</bean>
@@ -32,12 +31,12 @@
 		</property>
 		<property name="handlers">
 			<list>
-				<ref bean="egovHandler" />
+				<ref bean="cmmnHandler" />
 			</list>
 		</property>
 	</bean>
-
-	<bean id="otherExceptionHandleManager" class="egovframework.rte.fdl.cmmn.exception.manager.DefaultExceptionHandleManager">
+	
+	<bean id="fileExceptionHandleManager" class="egovframework.rte.fdl.cmmn.exception.manager.DefaultExceptionHandleManager">
 		<property name="reqExpMatcher">
 			<ref bean="antPathMater"/>
 		</property>
@@ -48,12 +47,12 @@
 		</property>
 		<property name="handlers">
 			<list>
-				<ref bean="otherHandler" />
+				<ref bean="fileHandler" />
 			</list>
 		</property>
 	</bean>
-
-	<bean id="egovHandler" class="egovframework.example.cmmn.EgovSampleExcepHndlr" />
-	<bean id="otherHandler" class="egovframework.example.cmmn.EgovSampleOthersExcepHndlr" />	
 	
+	<bean id="cmmnHandler" class="egovframework.example.cmmn.CmmnExcepHndlr" />
+	<bean id="fileHandler" class="egovframework.example.cmmn.FileExcepHndlr" />	
+
 </beans>

@@ -8,7 +8,14 @@
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location= "classpath:/db/sampledb.sql"/>
 	</jdbc:embedded-database>
-     
+    
+    <!-- Mariadb (POM에서 commons-dbcp, mysql-connector-java 관련 라이브러리 설정 ) -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/corporate_name" />
+        <property name="username" value="ravissement"/>
+        <property name="password" value="1234"/>
+    </bean> 
      
     <!-- hsql (테스트용 메모리 DB)
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">

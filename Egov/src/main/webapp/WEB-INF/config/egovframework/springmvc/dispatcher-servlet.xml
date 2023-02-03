@@ -50,11 +50,12 @@
 
     <!-- For Pagination Tag -->
     <bean id="imageRenderer" class="egovframework.example.cmmn.web.EgovImgPaginationRenderer"/>
-
+	<bean id="textRenderer" class="egovframework.example.cmmn.web.EgovTextPaginationRenderer"/>
     <bean id="paginationManager" class="egovframework.rte.ptl.mvc.tags.ui.pagination.DefaultPaginationManager">
         <property name="rendererType">
             <map>
                 <entry key="image" value-ref="imageRenderer"/>
+                <entry key="text" value-ref="textRenderer"/>
             </map>
         </property>
     </bean>

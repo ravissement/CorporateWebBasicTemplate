@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 1.0
  * @see
  *
- *  Copyright (C) by ravissement All right reserved.
+ *  Copyright (C) by RAVISSEMENT All right reserved.
  */
 
 @RequestMapping(value = "/*")

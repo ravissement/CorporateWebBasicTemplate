@@ -26,16 +26,16 @@ import org.springframework.web.context.ServletContextAware;
  * @Description : ImagePaginationRenderer Class
  * @Modification Information
  * @
- * @  수정일      수정자              수정내용
- * @ ---------   ---------   -------------------------------
- * @ 2009.03.16           최초생성
+ * @  수정일      		수정자              		수정내용
+ * @ ---------   	---------   	-------------------------------
+ * @ 2023.02.03    	ravissement     최초생성
  *
- * @author 개발프레임웍크 실행환경 개발팀
- * @since 2009. 03.16
+ * @author ravissement
+ * @since 2023. 02.03
  * @version 1.0
  * @see
  *
- *  Copyright (C) by MOPAS All right reserved.
+ *  Copyright (C) by RAVISSEMENT All right reserved.
  */
 public class EgovImgPaginationRenderer extends AbstractPaginationRenderer implements ServletContextAware{
 
@@ -46,18 +46,20 @@ public class EgovImgPaginationRenderer extends AbstractPaginationRenderer implem
 	}
 
 	/**
-	* PaginationRenderer
+	* PaginationRenderer(Image)
 	*
 	* @see 개발프레임웍크 실행환경 개발팀
+	* @ 전자정부프레임워크 Sample Pagination code. 
 	*/
 	public void initVariables() {
-
+		
 		firstPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">" + "<image src='" + servletContext.getContextPath() + "/images/egovframework/cmmn/btn_page_pre10.gif' border=0/></a>&#160;";
 		previousPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">" + "<image src='" + servletContext.getContextPath() + "/images/egovframework/cmmn/btn_page_pre1.gif' border=0/></a>&#160;";
 		currentPageLabel = "<strong>{0}</strong>&#160;";
 		otherPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">{2}</a>&#160;";
 		nextPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">" + "<image src='" + servletContext.getContextPath() + "/images/egovframework/cmmn/btn_page_next1.gif' border=0/></a>&#160;";
 		lastPageLabel = "<a href=\"#\" onclick=\"{0}({1}); return false;\">" + "<image src='" + servletContext.getContextPath() + "/images/egovframework/cmmn/btn_page_next10.gif' border=0/></a>&#160;";
+		
 	}
 
 	@Override

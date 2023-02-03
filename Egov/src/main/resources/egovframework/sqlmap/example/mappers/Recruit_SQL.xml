@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.sample.service.impl.RecruitMapper">
+
+	<resultMap id="recruit" type="egovframework.example.sample.service.RecruitVO">
+		<result property="idx" column="idx"/>
+		<result property="title" column="title"/>
+		<result property="contents" column="contents"/>
+		<result property="attachOriName" column="attach_ori_name"/>
+		<result property="attachSaveName" column="attach_save_name"/>
+		<result property="regDate" column="reg_date"/>
+		<result property="regUser" column="reg_user"/>
+		<result property="useYn" column="use_yn"/>
+	</resultMap>
+
+	<insert id="insertRecruit" parameterType="RecruitVO">
+
+			INSERT INTO RECRUIT
+				( TITLE
+				  , CONTENTS
+				  , ATTACH_ORI_NAME
+				  , ATTACH_SAVE_NAME
+				  , USE_YN
+				  , REG_USER )
+			VALUES ( #{title}
+				  , #{contents}
+				  , #{attachOriName}
+				  , #{attachSaveName}
+				  , #{useYn}
+				  , #{regUser} )
+
+	</insert>
+
+	<update id="updateRecruit" parameterType="recruitVO">
+			
+		<choose>
+            <when test="attachOriName != null">
+				UPDATE RECRUIT
+				SET TITLE=#{title}
+					, CONTENTS=#{contents}
+					, ATTACH_ORI_NAME=#{attachOriName}
+					, ATTACH_SAVE_NAME=#{attachSaveName}
+					, USE_YN=#{useYn}
+					  WHERE IDX=#{idx}
+			</when>
+            <otherwise>
+				UPDATE RECRUIT
+				SET TITLE=#{title}
+					, CONTENTS=#{contents}
+					, USE_YN=#{useYn}
+					  WHERE IDX=#{idx}
+			</otherwise>
+		</choose>
+		
+	</update>
+
+	<delete id="deleteRecruit">
+
+			DELETE FROM RECRUIT
+			WHERE IDX=#{idx}
+
+	</delete>
+
+	<select id="selectRecruit" resultMap="recruit">
+
+			SELECT
+				IDX, TITLE, CONTENTS, ATTACH_ORI_NAME, ATTACH_SAVE_NAME, REG_DATE, USE_YN, REG_USER
+			FROM RECRUIT
+			WHERE IDX=#{idx}
+
+	</select>
+
+	<select id="selectRecruitList" parameterType="searchVO" resultType="egovMap">
+
+			SELECT
+				IDX, TITLE, CONTENTS, ATTACH_ORI_NAME, ATTACH_SAVE_NAME, REG_DATE, USE_YN, REG_USER
+			FROM RECRUIT
+			WHERE USE_YN = 'Y'
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						<!-- AND	TITLE LIKE '%' || #{searchKeyword} || '%'  -->
+						AND TITLE LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+		            <when test="searchCondition == 1">
+						<!-- AND	CONTENTS LIKE '%' || #{searchKeyword} || '%'  -->
+						AND CONTENTS LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+				</choose>
+			</if>
+			ORDER BY REG_DATE DESC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	</select>
+	
+	<select id="selectRecruitListAdmin" parameterType="searchVO" resultType="egovMap">
+
+			SELECT
+				IDX, TITLE, CONTENTS, ATTACH_ORI_NAME, ATTACH_SAVE_NAME, REG_DATE, USE_YN, REG_USER
+			FROM RECRUIT
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						<!-- AND	TITLE LIKE '%' || #{searchKeyword} || '%'  -->
+						AND TITLE LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+		            <when test="searchCondition == 1">
+						<!-- AND	CONTENTS LIKE '%' || #{searchKeyword} || '%'  -->
+						AND CONTENTS LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+				</choose>
+			</if>
+			ORDER BY REG_DATE DESC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	</select>
+
+	<select id="selectRecruitListTotCnt" parameterType="searchVO" resultType="int">
+
+			SELECT COUNT(*) totcnt
+			FROM RECRUIT
+			WHERE USE_YN = 'Y'
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						<!-- AND TITLE LIKE '%' || #{searchKeyword} || '%'  -->
+						AND TITLE LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+		            <when test="searchCondition == 1">
+						<!-- AND	CONTENTS LIKE '%' || #{searchKeyword} || '%' -->
+						AND CONTENTS LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+				</choose>
+			</if>
+	</select>
+	
+	<select id="selectRecruitListTotCntAdmin" parameterType="searchVO" resultType="int">
+
+			SELECT COUNT(*) totcnt
+			FROM RECRUIT
+			WHERE 1=1
+			<if test="searchKeyword != null and searchKeyword != ''">
+		        <choose>
+		            <when test="searchCondition == 0">
+						<!-- AND TITLE LIKE '%' || #{searchKeyword} || '%'  -->
+						AND TITLE LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+		            <when test="searchCondition == 1">
+						<!-- AND	CONTENTS LIKE '%' || #{searchKeyword} || '%' -->
+						AND CONTENTS LIKE CONCAT('%',#{searchKeyword},'%')
+					</when>
+				</choose>
+			</if>
+	</select>
+
+</mapper>
