@@ -73,3 +73,20 @@ Based on the eGovFrame Web Project Generate Example. <br/>
 </p>
 
 </details>
+
+<details>
+<summary>Show Exception Chapter Template</summary>
+
+## Exception Template
+<p>
+<img width="430" height="400" alt="PageNotFoundException" src="https://user-images.githubusercontent.com/57596337/216903881-09524337-68c4-419c-bd2b-5892fea9ff38.png">
+<img width="430" height="400" alt="RunTImeException" src="https://user-images.githubusercontent.com/57596337/216903905-14e633b7-9171-458c-8f83-5f7fe2dda47f.png">
+</p>
+
+## Exception Log
+<p>
+<img width="730" height="400" alt="PageNotFoundExceptionlog" src="https://user-images.githubusercontent.com/57596337/216903891-865f72da-8bff-4a07-8284-216c0297eb9d.png">
+<img width="730" height="400"" alt="RunTimeExceptionLog" src="https://user-images.githubusercontent.com/57596337/216903928-1d8f6a59-489e-49fd-be61-aae0fde35407.png">
+</p>
+
+</details>
