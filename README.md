@@ -56,3 +56,20 @@ Based on the eGovFrame Web Project Generate Example. <br/>
 </p>
 
 </details>
+
+<details>
+<summary>Show Recruit Chapter Template</summary>
+
+## Information
+<p>
+<img width="430" height="400" alt="P_information1" src="https://user-images.githubusercontent.com/57596337/216902712-e862a80b-0a5c-431e-913a-dd5402b22794.png">
+<img width="430" height="400" alt="P_information2" src="https://user-images.githubusercontent.com/57596337/216902723-3f08056a-fb27-4f02-afa1-23fc16f07f71.png">
+</p>
+
+## Model 
+<p>
+<img width="430" height="400" alt="P_rolemodel1" src="https://user-images.githubusercontent.com/57596337/216903245-aad71b32-8de9-41af-a764-0493494003e7.png">
+<img width="430" height="400" alt="P_rolemodel2" src="https://user-images.githubusercontent.com/57596337/216903254-838e3326-49d5-4be7-a8fc-90b7904e8e7b.png">
+</p>
+
+</details>
