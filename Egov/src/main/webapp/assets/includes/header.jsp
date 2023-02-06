@@ -47,6 +47,13 @@
 	                    <li><a class="dropdown-item" href="/recruit/model.do">model</a></li>
 	                </ul>
 				</li>
+				<li class="nav-item dropdown">
+					<a href="#" class="nav-link <%= request.getRequestURI().contains("client/") ? "active-red" : "" %>" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Client</a>
+					<ul class="dropdown-menu" aria-labelledby="sub-nav4">
+	                    <li><a class="dropdown-item" href="/client/notice.do">notice</a></li>
+	                    <li><a class="dropdown-item" href="/client/manager.do">manager</a></li>
+	                </ul>
+				</li>
 			</ul>
 		</header>
    </div>
