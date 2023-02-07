@@ -48,9 +48,9 @@ import egovframework.rte.fdl.cmmn.exception.handler.ExceptionHandler;
  * @Description : FileExceptionHandler Class
  * @Modification Information
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.03     ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.03		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.03
@@ -92,44 +92,44 @@ public class FileExcepHndlr implements ExceptionHandler {
 	@Override
 	public void occur(Exception exception, String packageName) {
 		LOGGER.debug(" EgovServiceExceptionHandler run...............");
-        LOGGER.error("An exception occurred in package : {} with message : {}", packageName, userFriendlyMessage);
+		LOGGER.error("An exception occurred in package : {} with message : {}", packageName, userFriendlyMessage);
         
-        if (exception instanceof FileNotFoundException) {
-        	userFriendlyMessage = errorMessages.get("FileNotFoundException");
-            LOGGER.error("A FileNotFoundException has occurred: " + exception.getMessage());
-        
-        } else if (exception instanceof IOException) {
-        	userFriendlyMessage = errorMessages.get("IOException");
+		if (exception instanceof FileNotFoundException) {
+			userFriendlyMessage = errorMessages.get("FileNotFoundException");
+			LOGGER.error("A FileNotFoundException has occurred: " + exception.getMessage());
+		
+		} else if (exception instanceof IOException) {
+			userFriendlyMessage = errorMessages.get("IOException");
 			LOGGER.error("An IOException has occurred: " + exception.getMessage());
-       
-        }  else if (exception instanceof SecurityException) {
-        	userFriendlyMessage = errorMessages.get("SecurityException");
-            LOGGER.error("A SecurityException has occurred: " + exception.getMessage());
-        
-        } else if (exception instanceof IllegalArgumentException) {
-        	userFriendlyMessage = errorMessages.get("IllegalArgumentException");
-            LOGGER.error("An IllegalArgumentException has occurred: " + exception.getMessage());
-        
-        } else if (exception instanceof UnsupportedOperationException) {
-        	userFriendlyMessage = errorMessages.get("UnsupportedOperationException");
-            LOGGER.error("An UnsupportedOperationException has occurred: " + exception.getMessage());
-        
-        } else if (exception instanceof MalformedURLException) {
-        	userFriendlyMessage = errorMessages.get("MalformedURLException");
-            LOGGER.error("A MalformedURLException has occurred: " + exception.getMessage());
-        
-        } else if (exception instanceof FileUploadException) {
-        	userFriendlyMessage = errorMessages.get("FileUploadException");
-            LOGGER.error("A FileUploadException has occurred: " + exception.getMessage());
-        
-        } else if (exception instanceof MaxUploadSizeExceededException) {
-        	userFriendlyMessage = errorMessages.get("MaxUploadSizeExceededException");
-            LOGGER.error("An UploadSizeLimitExceededException has occurred: " + exception.getMessage());
-        
-        } else {
-            // Handle any other exceptions here
-        	userFriendlyMessage = "오류가 발생했습니다. 잠시 후 다시 시도 해주세요";
-            LOGGER.error("An exception has occurred: " + exception.getMessage());
-        }
+		   
+		}  else if (exception instanceof SecurityException) {
+			userFriendlyMessage = errorMessages.get("SecurityException");
+			LOGGER.error("A SecurityException has occurred: " + exception.getMessage());
+		
+		} else if (exception instanceof IllegalArgumentException) {
+			userFriendlyMessage = errorMessages.get("IllegalArgumentException");
+			LOGGER.error("An IllegalArgumentException has occurred: " + exception.getMessage());
+		
+		} else if (exception instanceof UnsupportedOperationException) {
+			userFriendlyMessage = errorMessages.get("UnsupportedOperationException");
+			LOGGER.error("An UnsupportedOperationException has occurred: " + exception.getMessage());
+		
+		} else if (exception instanceof MalformedURLException) {
+			userFriendlyMessage = errorMessages.get("MalformedURLException");
+			LOGGER.error("A MalformedURLException has occurred: " + exception.getMessage());
+		
+		} else if (exception instanceof FileUploadException) {
+			userFriendlyMessage = errorMessages.get("FileUploadException");
+			LOGGER.error("A FileUploadException has occurred: " + exception.getMessage());
+		
+		} else if (exception instanceof MaxUploadSizeExceededException) {
+			userFriendlyMessage = errorMessages.get("MaxUploadSizeExceededException");
+			LOGGER.error("An UploadSizeLimitExceededException has occurred: " + exception.getMessage());
+		
+		} else {
+			// Handle any other exceptions here
+			userFriendlyMessage = "오류가 발생했습니다. 잠시 후 다시 시도 해주세요";
+			LOGGER.error("An exception has occurred: " + exception.getMessage());
+		}
 	}
 }

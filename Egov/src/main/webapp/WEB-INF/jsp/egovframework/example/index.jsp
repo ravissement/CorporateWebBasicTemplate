@@ -5,29 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Corporate Name</title>
-<style>
-/* ellipsis */
-.txt_post {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 1;
-	-webkit-box-orient: vertical;
-	word-wrap: break-word;
-	line-height: 1.2em;
-	height: 1.2em;
-}
-
-.txt_line {
-	width: 300px;
-	padding: 0 5px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	line-height: 3.6em;
-	height: 3.6em;
-}
-</style>
 </head>
 <body>
 	<!-- Loading Screen -->
@@ -493,7 +470,6 @@
 			const id = "scrollNumber" + num;
 			const element = document.getElementById(id);
 			element.scrollIntoView();
-			console.log(num);
 		}
 	</script>
 </body>

@@ -14,9 +14,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  * @Description :SessionInterceptor Class
  * @Modification Session
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.07		ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.07		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.07

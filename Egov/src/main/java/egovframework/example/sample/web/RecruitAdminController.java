@@ -30,9 +30,9 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Description : Admin Recruit Controller Class
  * @Modification Information
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.03		ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.03		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.03
@@ -149,10 +149,10 @@ public class RecruitAdminController {
 			HashMap<String, String> fileName  = new HashMap<String, String>();
 			fileName = fileService.saveFile(recruitVO.getAttachFile(), path);
 			if(fileName.get("error") != null) {
-        		return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
-        	}
-        	recruitVO.setAttachOriName(fileName.get("oriName"));
-        	recruitVO.setAttachSaveName(fileName.get("saveName"));
+				return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
+			}
+			recruitVO.setAttachOriName(fileName.get("oriName"));
+			recruitVO.setAttachSaveName(fileName.get("saveName"));
 		}
 		
 		recruitService.insertRecruit(recruitVO);
@@ -210,12 +210,12 @@ public class RecruitAdminController {
 		// File Upload
 		if (!recruitVO.getAttachFile().isEmpty()) {
 			HashMap<String, String> fileName  = new HashMap<String, String>();
-        	fileName = fileService.saveFile(recruitVO.getAttachFile(), path);
-        	if(fileName.get("error") != null) {
-        		return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
-        	}
-        	recruitVO.setAttachOriName(fileName.get("oriName"));
-        	recruitVO.setAttachSaveName(fileName.get("saveName"));
+			fileName = fileService.saveFile(recruitVO.getAttachFile(), path);
+			if(fileName.get("error") != null) {
+				return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
+			}
+			recruitVO.setAttachOriName(fileName.get("oriName"));
+			recruitVO.setAttachSaveName(fileName.get("saveName"));
 		}
 
 		recruitService.updateRecruit(recruitVO);

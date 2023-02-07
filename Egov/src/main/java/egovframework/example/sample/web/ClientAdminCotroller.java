@@ -32,9 +32,9 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Description : Admin Client Controller Class
  * @Modification Notice
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.07		ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.07		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.07
@@ -89,7 +89,6 @@ public class ClientAdminCotroller {
 	 */
 	@RequestMapping(value = "/notice.do")
 	public String notice(@ModelAttribute("searchVO") SearchVO searchVO, ModelMap model) throws Exception {
-		
 		/** EgovPropertyService */
 		searchVO.setPageUnit(propertiesService.getInt("pageUnit"));
 		searchVO.setPageSize(propertiesService.getInt("pageSize"));
@@ -147,12 +146,12 @@ public class ClientAdminCotroller {
 		// File Upload
 		if (!noticeVO.getAttachFile().isEmpty()) {
 			HashMap<String, String> fileName  = new HashMap<String, String>();
-        	fileName = fileService.saveFile(noticeVO.getAttachFile(), path);
-        	if(fileName.get("error") != null) {
-        		return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
-        	}
-        	noticeVO.setAttachOriName(fileName.get("oriName"));
-        	noticeVO.setAttachSaveName(fileName.get("saveName"));
+			fileName = fileService.saveFile(noticeVO.getAttachFile(), path);
+			if(fileName.get("error") != null) {
+				return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
+			}
+			noticeVO.setAttachOriName(fileName.get("oriName"));
+			noticeVO.setAttachSaveName(fileName.get("saveName"));
 		}
 		
 		noticeService.insertNotice(noticeVO);
@@ -210,12 +209,12 @@ public class ClientAdminCotroller {
 		// File Upload
 		if (!noticeVO.getAttachFile().isEmpty()) {
 			HashMap<String, String> fileName  = new HashMap<String, String>();
-        	fileName = fileService.saveFile(noticeVO.getAttachFile(), path);
-        	if(fileName.get("error") != null) {
-        		return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
-        	}
-        	noticeVO.setAttachOriName(fileName.get("oriName"));
-        	noticeVO.setAttachSaveName(fileName.get("saveName"));
+			fileName = fileService.saveFile(noticeVO.getAttachFile(), path);
+			if(fileName.get("error") != null) {
+				return "cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(fileName.get("error"), "UTF-8");
+			}
+			noticeVO.setAttachOriName(fileName.get("oriName"));
+			noticeVO.setAttachSaveName(fileName.get("saveName"));
 		}
 
 		noticeService.updateNotice(noticeVO);

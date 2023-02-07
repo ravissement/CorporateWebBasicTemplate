@@ -30,9 +30,9 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Description : Recruit Controller Class
  * @Modification Information
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.03		ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.03		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.03
@@ -98,7 +98,6 @@ public class RecruitController {
 	 */
 	@RequestMapping(value = "/information.do")
 	public String information(@ModelAttribute("searchVO") SearchVO searchVO, ModelMap model) throws Exception {
-		
 		/** EgovPropertyService */
 		searchVO.setPageUnit(propertiesService.getInt("pageUnit"));
 		searchVO.setPageSize(propertiesService.getInt("pageSize"));

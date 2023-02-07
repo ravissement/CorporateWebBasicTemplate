@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Description : RuntimeError Controller Class
  * @Modification Information
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.03		ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.03		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.03

@@ -22,9 +22,9 @@ import egovframework.rte.fdl.cmmn.exception.FdlException;
  * @Description : Runtime Exception Advice Class
  * @Modification Information
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.03     ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.03		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.03

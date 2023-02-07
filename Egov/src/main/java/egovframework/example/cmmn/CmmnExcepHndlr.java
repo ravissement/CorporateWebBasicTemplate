@@ -34,9 +34,9 @@ import egovframework.rte.fdl.cmmn.exception.handler.ExceptionHandler;
  * @Description : EgovSampleExcepHndlr Class
  * @Modification Information
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.03     ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.03		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.03
@@ -76,33 +76,33 @@ public class CmmnExcepHndlr implements ExceptionHandler {
 		LOGGER.debug(" EgovServiceExceptionHandler run...............");
 		
 		if (exception instanceof DataAccessException) {
-        	userFriendlyMessage = errorMessages.get("DataAccessException");
-            LOGGER.error("A FileNotFoundException has occurred: " + exception.getMessage());
+			userFriendlyMessage = errorMessages.get("DataAccessException");
+			LOGGER.error("A FileNotFoundException has occurred: " + exception.getMessage());
         
-        } else if (exception instanceof TransactionException) {
-        	userFriendlyMessage = errorMessages.get("TransactionException");
+		} else if (exception instanceof TransactionException) {
+			userFriendlyMessage = errorMessages.get("TransactionException");
 			LOGGER.error("An IOException has occurred: " + exception.getMessage());
-       
-        } else if (exception instanceof EgovBizException) {
-        	userFriendlyMessage = errorMessages.get("EgovBizException");
+		   
+		} else if (exception instanceof EgovBizException) {
+			userFriendlyMessage = errorMessages.get("EgovBizException");
 			LOGGER.error("An IOException has occurred: " + exception.getMessage());
-       
-        } else if (exception instanceof AccessDeniedException) {
-        	userFriendlyMessage = errorMessages.get("AccessDeniedException");
+		   
+		} else if (exception instanceof AccessDeniedException) {
+			userFriendlyMessage = errorMessages.get("AccessDeniedException");
 			LOGGER.error("An IOException has occurred: " + exception.getMessage());
-       
-        } else if (exception instanceof RuntimeException) {
-        	userFriendlyMessage = errorMessages.get("RuntimeException");
+		   
+		} else if (exception instanceof RuntimeException) {
+			userFriendlyMessage = errorMessages.get("RuntimeException");
 			LOGGER.error("An IOException has occurred: " + exception.getMessage());
-       
-        } else if (exception instanceof FdlException) {
-        	userFriendlyMessage = errorMessages.get("FdlException");
+		   
+		} else if (exception instanceof FdlException) {
+			userFriendlyMessage = errorMessages.get("FdlException");
 			LOGGER.error("An IOException has occurred: " + exception.getMessage());
-       
-        } else {
-            // Handle any other exceptions here
-        	userFriendlyMessage = "오류가 발생했습니다. 잠시 후 다시 시도 해주세요";
-            LOGGER.error("An exception has occurred: " + exception.getMessage());
-        }   
+		   
+		} else {
+			// Handle any other exceptions here
+			userFriendlyMessage = "오류가 발생했습니다. 잠시 후 다시 시도 해주세요";
+			LOGGER.error("An exception has occurred: " + exception.getMessage());
+		}   
 	}
 }

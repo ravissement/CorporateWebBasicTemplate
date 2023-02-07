@@ -24,9 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Description : Home Controller Class
  * @Modification Information
  * @
- * @  수정일      		수정자              		수정내용
- * @ ---------   	---------   	-------------------------------
- * @ 2023.02.02		ravissement     최초생성
+ * @  수정일			수정자			수정내용
+ * @ ---------		---------		-------------------------------
+ * @ 2023.02.02		ravissement		최초생성
  *
  * @author ravissement
  * @since 2023. 02.02
@@ -42,7 +42,6 @@ public class HomeController {
 	
 	/**
 	 * 홈 루트를 조회한다.
-	 * @param model
 	 * @return "/"
 	 * @exception Exception
 	 */
