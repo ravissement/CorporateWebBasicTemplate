@@ -27,36 +27,36 @@
 	<div class="container">
 		<header class="d-flex flex-wrap justify-content-center py-2 mb-3">
 			<a href="/" class="d-flex align-items-center mb-2 mb-md-0 me-md-auto text-decoration-none text-bg-secondary rounded">
-					<span class="m-2">LOGO IMAGE</span>
+				<span class="m-2">LOGO IMAGE</span>
 			</a>
 			<ul class="nav">
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link <%= request.getRequestURI().contains("about/") ? "active-red" : "" %>" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
 					<ul class="dropdown-menu" aria-labelledby="sub-nav1">
-	                    <li><a class="dropdown-item" href="/about/greetings.do">greetings</a></li>
-	                    <li><a class="dropdown-item" href="/about/philosophy.do">philosophy</a></li>
-	                    <li><a class="dropdown-item" href="/about/history.do">history</a></li>
-	                    <li><a class="dropdown-item" href="/about/organization.do">organization chart</a></li>
-	                    <li><a class="dropdown-item" href="/about/maps.do">sketch map</a></li>
-	                </ul>
+						<li><a class="dropdown-item" href="/about/greetings.do">greetings</a></li>
+						<li><a class="dropdown-item" href="/about/philosophy.do">philosophy</a></li>
+						<li><a class="dropdown-item" href="/about/history.do">history</a></li>
+						<li><a class="dropdown-item" href="/about/organization.do">organization chart</a></li>
+						<li><a class="dropdown-item" href="/about/maps.do">sketch map</a></li>
+					</ul>
 				</li>
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link <%= request.getRequestURI().contains("recruit/") ? "active-red" : "" %>" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recruit</a>
 					<ul class="dropdown-menu" aria-labelledby="sub-nav4">
-	                    <li><a class="dropdown-item" href="/recruit/information.do">information</a></li>
-	                    <li><a class="dropdown-item" href="/recruit/model.do">model</a></li>
-	                </ul>
+						<li><a class="dropdown-item" href="/recruit/information.do">information</a></li>
+						<li><a class="dropdown-item" href="/recruit/model.do">model</a></li>
+					</ul>
 				</li>
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link <%= request.getRequestURI().contains("client/") ? "active-red" : "" %>" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Client</a>
 					<ul class="dropdown-menu" aria-labelledby="sub-nav4">
-	                    <li><a class="dropdown-item" href="/client/notice.do">notice</a></li>
-	                    <li><a class="dropdown-item" href="/client/manager.do">manager</a></li>
-	                </ul>
+						<li><a class="dropdown-item" href="/client/notice.do">notice</a></li>
+						<li><a class="dropdown-item" href="/client/manager.do">manager</a></li>
+					</ul>
 				</li>
 			</ul>
 		</header>
-   </div>
+	</div>
 </div>
 </body>
 </html>

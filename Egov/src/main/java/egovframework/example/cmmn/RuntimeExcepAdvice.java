@@ -39,30 +39,30 @@ public class RuntimeExcepAdvice {
 	
 	/** FileExceptionHandler */
 	@Resource(name = "fileHandler")
-    private FileExcepHndlr fileExcepHandler;
+	private FileExcepHndlr fileExcepHandler;
 	
 	/** CommonExcepHndlr */
 	@Resource(name = "cmmnHandler")
-    private CmmnExcepHndlr CmmnExcepHndlr;
+	private CmmnExcepHndlr CmmnExcepHndlr;
 	
 	/**
 	 * MaxUploadSizeExceededException이 발생하면 그에 대한 사용자 안내 페이지를 조회한다.
 	 * @maxSwallowSize="52428800" - Tomcat's Request Deny Scope 50MB.
 	 * @maxUploadSize="10240000" - Handler's Exception handling Scope 10MB~50MB. 
 	 * */
-    @ExceptionHandler(MaxUploadSizeExceededException.class)
+	@ExceptionHandler(MaxUploadSizeExceededException.class)
     public void handleMaxUploadException(MaxUploadSizeExceededException e, HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	HashMap<String, String> errMsg  = new HashMap<String, String>();
-    	fileExcepHandler.occur(e, this.getClass().getName());
-    	errMsg.put("error", fileExcepHandler.getUserFriendlyMessage());
+		HashMap<String, String> errMsg  = new HashMap<String, String>();
+		fileExcepHandler.occur(e, this.getClass().getName());
+		errMsg.put("error", fileExcepHandler.getUserFriendlyMessage());
 		response.sendRedirect("/cmmn/runtimeError/runtimeError.do?resultMessage=" + URLEncoder.encode(errMsg.get("error"), "UTF-8"));
     }
     
     @ExceptionHandler({DataAccessException.class, RuntimeException.class, TransactionException.class, EgovBizException.class, AccessDeniedException.class, FdlException.class})
-	public void handleExceptions(Exception e, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void handleExceptions(Exception e, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HashMap<String, String> errMsg  = new HashMap<String, String>();
 		CmmnExcepHndlr.occur(e, this.getClass().getName());
 		errMsg.put("error", CmmnExcepHndlr.getUserFriendlyMessage());
 		response.sendRedirect("/cmmn/runtimeError/runtimeError.do?resultMessage=" + URLEncoder.encode(errMsg.get("error"), "UTF-8"));
-	}
+    }
 }

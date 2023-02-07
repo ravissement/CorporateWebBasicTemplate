@@ -71,9 +71,9 @@ public class RecruitController {
 	 * @param fileOriName - 다운로드할 파일의  Original Name이 담긴 String
 	 * @exception Exception
 	 */
-    @RequestMapping(value = "/fileDownload.do", method = RequestMethod.GET )
-    public void fileDownload(String fileSaveName, String fileOriName, HttpServletResponse response) throws Exception {
-    	String resultMessage = fileService.downloadFile(fileSaveName, fileOriName, path, response);
+	@RequestMapping(value = "/fileDownload.do", method = RequestMethod.GET )
+	public void fileDownload(String fileSaveName, String fileOriName, HttpServletResponse response) throws Exception {
+		String resultMessage = fileService.downloadFile(fileSaveName, fileOriName, path, response);
 		if(resultMessage != null) {
 			response.sendRedirect("/cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(resultMessage, "UTF-8"));
 		}

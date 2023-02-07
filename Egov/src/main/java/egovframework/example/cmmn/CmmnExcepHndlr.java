@@ -58,14 +58,14 @@ public class CmmnExcepHndlr implements ExceptionHandler {
         errorMessages.put("AccessDeniedException", "요청한 리소스에 대한 액세스가 거부되었습니다. 권한을 확인하고 다시 시도하거나 지원팀에 문의하십시오.");
         errorMessages.put("RuntimeException", "실행중 예외가 발생했습니다. 도움이 필요하면 지원팀에 문의하십시오.");
         errorMessages.put("FdlException", "실행중 예외가 발생했습니다. 도움이 필요하면 지원팀에 문의하십시오.");
-    }
+	}
 	
 	/** 사용자 안내 메시지 */
 	private String userFriendlyMessage;
 	
-    public String getUserFriendlyMessage() {
-        return userFriendlyMessage;
-    }
+	public String getUserFriendlyMessage() {
+		return userFriendlyMessage;
+	}
 	
 	/**
 	* @param exception

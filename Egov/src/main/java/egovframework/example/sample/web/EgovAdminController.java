@@ -75,21 +75,21 @@ public class EgovAdminController {
 			return "egovAdmin/login";
 		}
 		
-        int result = loginService.loginAdmin(loginVO);
-        if (result == 1) {
-        	HttpSession session = req.getSession();
-        	session.setAttribute("loginID", loginVO.getId());
-        	return "forward:/egovAdmin/recruit/information.do";
-    	} else {
-    		rep.setCharacterEncoding("UTF-8");
-    		rep.setContentType("text/html; charset=UTF-8");
+		int result = loginService.loginAdmin(loginVO);
+		if (result == 1) {
+			HttpSession session = req.getSession();
+			session.setAttribute("loginID", loginVO.getId());
+			return "forward:/egovAdmin/recruit/information.do";
+		} else {
+			rep.setCharacterEncoding("UTF-8");
+			rep.setContentType("text/html; charset=UTF-8");
 			PrintWriter out=rep.getWriter();
 			out.println("<script language='javascript'>");
 			out.println("alert('로그인 정보가 일치하지 않습니다.');");
 			out.println("</script>");
 			out.flush();
 			return "egovAdmin/login";
-    	}
+		}
 	}
 	
 	/**

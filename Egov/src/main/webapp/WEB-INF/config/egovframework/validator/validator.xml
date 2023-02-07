@@ -5,52 +5,89 @@
 
 <form-validation>
 
-    <formset>
-        <form name="recruitVO">
-			<field property="title" depends="required,maxlength">
-                <arg0 key="title.recruit.title" />
-                <arg1 key="100" resource="true"/>
-			    <var>
-			    <var-name>maxlength</var-name>
-			    <var-value>100</var-value>
-			    </var>
-            </field>
-			<field property="contents" depends="required,maxlength">
-                <arg0 key="title.recruit.contents" />
-                <arg1 key="4000" resource="true"/>
-			    <var>
-			    <var-name>maxlength</var-name>
-			    <var-value>4000</var-value>
-			    </var>
-            </field>
-        	<field property="regUser" depends="required,maxlength">
-        		<arg0 key="title.recruit.regUser" />
-        		<arg1 key="10" resource="true"/>
-			    <var>
-			    <var-name>maxlength</var-name>
-			    <var-value>10</var-value>
-			    </var>
-			</field>
-        	<field property="useYn" depends="required,maxlength">
-        		<arg0 key="title.recruit.useYn" />
-        		<arg1 key="1" resource="true"/>
-			    <var>
-			    <var-name>maxlength</var-name>
-			    <var-value>1</var-value>
-			    </var>
-			</field>
-        </form>
-    </formset>
-	
 	<formset>
-        <form name="loginVO">
+		<form name="recruitVO">
+			<field property="title" depends="required,maxlength">
+				<arg0 key="title.recruit.title" />
+				<arg1 key="100" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field property="contents" depends="required,maxlength">
+				<arg0 key="title.recruit.contents" />
+				<arg1 key="4000" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>4000</var-value>
+				</var>
+			</field>
+			<field property="regUser" depends="required,maxlength">
+				<arg0 key="title.recruit.regUser" />
+				<arg1 key="10" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+			<field property="useYn" depends="required,maxlength">
+				<arg0 key="title.recruit.useYn" />
+				<arg1 key="1" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+
+	<formset>
+		<form name="noticeVO">
+			<field property="title" depends="required,maxlength">
+				<arg0 key="title.notice.title" />
+				<arg1 key="100" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field property="contents" depends="required,maxlength">
+				<arg0 key="title.notice.contents" />
+				<arg1 key="4000" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>4000</var-value>
+				</var>
+			</field>
+			<field property="regUser" depends="required,maxlength">
+				<arg0 key="title.notice.regUser" />
+				<arg1 key="10" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+			<field property="useYn" depends="required,maxlength">
+				<arg0 key="title.notice.useYn" />
+				<arg1 key="1" resource="true" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+
+	<formset>
+		<form name="loginVO">
 			<field property="id" depends="required">
-                <arg0 key="title.login.id" />
-            </field>
+				<arg0 key="title.login.id" />
+			</field>
 			<field property="pw" depends="required">
-                <arg0 key="title.login.pw" />
-            </field>
-        </form>
-    </formset>
-	
+				<arg0 key="title.login.pw" />
+			</field>
+		</form>
+	</formset>
+
 </form-validation>

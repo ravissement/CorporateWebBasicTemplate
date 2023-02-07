@@ -39,11 +39,11 @@ public class FileServiceImpl extends EgovAbstractServiceImpl implements FileServ
 	
 	/** File Root */
 	@Resource(name="uploadPath")
-    String root;
+	String root;
 	
 	/** FileExceptionHandler */
 	@Resource(name = "fileHandler")
-    private FileExcepHndlr fileExceptionHandler;
+	private FileExcepHndlr fileExceptionHandler;
 	
 	/**
 	 * 파일을 저장한다.
@@ -54,10 +54,10 @@ public class FileServiceImpl extends EgovAbstractServiceImpl implements FileServ
 	public HashMap<String, String> saveFile(MultipartFile file, String path) {
 		HashMap<String, String> fileName  = new HashMap<String, String>();
 		
-	    if(file == null || file.isEmpty()) {
-	        fileName.put("error", "파일이 비어 있습니다. 유효한 파일을 선택하십시오.");
-	        return fileName;
-	    }
+		if(file == null || file.isEmpty()) {
+			fileName.put("error", "파일이 비어 있습니다. 유효한 파일을 선택하십시오.");
+			return fileName;
+		}
 		
 		UUID uuid = UUID.randomUUID();
 		String oriName = file.getOriginalFilename().replaceAll("\\\\.", "").replaceAll("/", "").replaceAll("\\\\", "");
@@ -94,7 +94,7 @@ public class FileServiceImpl extends EgovAbstractServiceImpl implements FileServ
 			if(!f.exists()){
 				fileExceptionHandler.occur(new FileNotFoundException(), this.getClass().getName());
 				resultMessage = fileExceptionHandler.getUserFriendlyMessage();
-	        } else {
+			} else {
 				response.setContentType("application/download");
 				response.setContentLength((int)f.length());
 				response.setHeader("Content-disposition", "attachment;filename=\"" + fileOriName + "\"");
@@ -103,7 +103,7 @@ public class FileServiceImpl extends EgovAbstractServiceImpl implements FileServ
 				FileCopyUtils.copy(fis, os);
 				fis.close();
 				os.close();
-	        }
+			}
 		} catch (Exception e) {
 			fileExceptionHandler.occur(e, this.getClass().getName());
 			resultMessage = fileExceptionHandler.getUserFriendlyMessage();

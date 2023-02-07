@@ -29,13 +29,12 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception { 
-	  
 		String userInfo = (String) request.getSession().getAttribute("loginID");
-    	if (userInfo != null && !userInfo.isEmpty()) {
-    		return true;
-    	} else {
-    		ModelAndView modelAndView = new ModelAndView("redirect:/egovAdmin/login.do");
-    		throw new ModelAndViewDefiningException(modelAndView);
-    	}
+		if (userInfo != null && !userInfo.isEmpty()) {
+			return true;
+		} else {
+			ModelAndView modelAndView = new ModelAndView("redirect:/egovAdmin/login.do");
+			throw new ModelAndViewDefiningException(modelAndView);
+		}
 	}
 }

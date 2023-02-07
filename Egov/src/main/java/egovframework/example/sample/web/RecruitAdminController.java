@@ -71,13 +71,13 @@ public class RecruitAdminController {
 	 * @param fileOriName - 다운로드할 파일의  Original Name이 담긴 String
 	 * @exception Exception
 	 */
-    @RequestMapping(value = "/fileDownload.do", method = RequestMethod.GET )
-    public void fileDownload(String fileSaveName, String fileOriName, HttpServletResponse response) throws Exception {
-    	String resultMessage = fileService.downloadFile(fileSaveName, fileOriName, path, response);
+	@RequestMapping(value = "/fileDownload.do", method = RequestMethod.GET )
+	public void fileDownload(String fileSaveName, String fileOriName, HttpServletResponse response) throws Exception {
+		String resultMessage = fileService.downloadFile(fileSaveName, fileOriName, path, response);
 		if(resultMessage != null) {
 			response.sendRedirect("/cmmn/runtimeError/fileError.do?resultMessage=" + URLEncoder.encode(resultMessage, "UTF-8"));
 		}
-    }
+	}
 	
 	/**
 	 * 채용안내글 목록을 조회한다. (pageing)
@@ -155,7 +155,7 @@ public class RecruitAdminController {
         	recruitVO.setAttachSaveName(fileName.get("saveName"));
 		}
 		
-        recruitService.insertRecruit(recruitVO);
+		recruitService.insertRecruit(recruitVO);
 		status.setComplete();
 		return "forward:/egovAdmin/recruit/information.do";
 	}

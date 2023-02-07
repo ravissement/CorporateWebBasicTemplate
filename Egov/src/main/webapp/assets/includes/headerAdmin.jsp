@@ -32,21 +32,21 @@
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link <%= request.getRequestURI().contains("recruit/") ? "active-red" : "" %>" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recruit</a>
 					<ul class="dropdown-menu" aria-labelledby="sub-nav4">
-	                    <li><a class="dropdown-item" href="/egovAdmin/recruit/information.do">information</a></li>
-	                </ul>
+						<li><a class="dropdown-item" href="/egovAdmin/recruit/information.do">information</a></li>
+					</ul>
 				</li>
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link <%= request.getRequestURI().contains("client/") ? "active-red" : "" %>" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Client</a>
 					<ul class="dropdown-menu" aria-labelledby="sub-nav4">
-	                    <li><a class="dropdown-item" href="/egovAdmin/client/notice.do">notice</a></li>
-	                </ul>
+						<li><a class="dropdown-item" href="/egovAdmin/client/notice.do">notice</a></li>
+					</ul>
 				</li>
 				<li class="nav-item">
 					<a href="/egovAdmin/logout.do" class="nav-link">Logout</a>
 				</li>
 			</ul>
 		</header>
-   </div>
+	</div>
 </div>
 </body>
 </html>

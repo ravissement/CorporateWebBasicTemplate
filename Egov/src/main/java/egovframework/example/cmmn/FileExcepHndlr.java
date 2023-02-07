@@ -66,22 +66,22 @@ public class FileExcepHndlr implements ExceptionHandler {
 	private static final Map<String, String> errorMessages = new HashMap<>();
 	
 	static {
-        errorMessages.put("FileNotFoundException", "요청한 파일을 찾을 수 없습니다.");
-        errorMessages.put("IOException", "파일을 처리하는 동안 오류가 발생했습니다.");
-        errorMessages.put("SecurityException", "파일에 액세스할 수 있는 권한이 없습니다.");
-        errorMessages.put("IllegalArgumentException", "잘못된 파일 형식입니다.");
-        errorMessages.put("UnsupportedOperationException", "이 파일 형식은 지원되지 않습니다.");
-        errorMessages.put("MalformedURLException", "잘못된  파일의 URL입니다.");
-        errorMessages.put("FileUploadException", "파일을 업로드하는 동안 오류가 발생했습니다.");
-        errorMessages.put("MaxUploadSizeExceededException", "파일 크기가 최대 한도를 초과했습니다.");
-    }
+		errorMessages.put("FileNotFoundException", "요청한 파일을 찾을 수 없습니다.");
+		errorMessages.put("IOException", "파일을 처리하는 동안 오류가 발생했습니다.");
+		errorMessages.put("SecurityException", "파일에 액세스할 수 있는 권한이 없습니다.");
+		errorMessages.put("IllegalArgumentException", "잘못된 파일 형식입니다.");
+		errorMessages.put("UnsupportedOperationException", "이 파일 형식은 지원되지 않습니다.");
+		errorMessages.put("MalformedURLException", "잘못된  파일의 URL입니다.");
+		errorMessages.put("FileUploadException", "파일을 업로드하는 동안 오류가 발생했습니다.");
+		errorMessages.put("MaxUploadSizeExceededException", "파일 크기가 최대 한도를 초과했습니다.");
+	}
 	
 	/** 사용자 안내 메시지 */
 	private String userFriendlyMessage;
 	
-    public String getUserFriendlyMessage() {
-        return userFriendlyMessage;
-    }
+	public String getUserFriendlyMessage() {
+		return userFriendlyMessage;
+	}
     
 	/**
 	* @param exception

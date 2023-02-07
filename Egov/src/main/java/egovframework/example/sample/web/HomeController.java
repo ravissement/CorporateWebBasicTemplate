@@ -48,7 +48,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/index.do")
 	public String si(Model model) throws Exception {
-		
 		return "/index";
 	}
 	
