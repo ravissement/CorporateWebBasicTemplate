@@ -41,5 +41,16 @@
 			</field>
         </form>
     </formset>
-
+	
+	<formset>
+        <form name="loginVO">
+			<field property="id" depends="required">
+                <arg0 key="title.login.id" />
+            </field>
+			<field property="pw" depends="required">
+                <arg0 key="title.login.pw" />
+            </field>
+        </form>
+    </formset>
+	
 </form-validation>

@@ -18,7 +18,7 @@
 <script type="text/javaScript" language="javascript" defer="defer">
 	/* 글 목록 화면 function */
 	function fn_egov_selectList() {
-	   	document.detailForm.action = "<c:url value='/admin/recruit/information.do'/>";
+	   	document.detailForm.action = "<c:url value='/egovAdmin/recruit/information.do'/>";
 	   	document.detailForm.submit();
 	}
 	
@@ -27,7 +27,7 @@
 		if (!confirm("삭제하시겠습니까?")) {
 			return;
 		} else {
-		   	document.detailForm.action = "<c:url value='/admin/recruit/deleteInformation.do'/>";
+		   	document.detailForm.action = "<c:url value='/egovAdmin/recruit/deleteInformation.do'/>";
 		   	document.detailForm.submit();
         }
 	}
@@ -38,7 +38,7 @@
 		if(!validateRecruitVO(frm)){
 	        return;
 	    }else{
-	    	frm.action = "<c:url value="${registerFlag == 'create' ? '/admin/recruit/addInformation.do' : '/admin/recruit/updateInformation.do'}"/>";
+	    	frm.action = "<c:url value="${registerFlag == 'create' ? '/egovAdmin/recruit/addInformation.do' : '/egovAdmin/recruit/updateInformation.do'}"/>";
 	        frm.submit();
 	    }
 	}
@@ -121,7 +121,7 @@
 								<c:if test="${recruitVO.attachSaveName != null}">
 									<br>
 			        				${recruitVO.attachOriName} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			        				<a href="<c:url value='/admin/recruit/fileDownload.do?fileSaveName=${recruitVO.attachSaveName}&fileOriName=${recruitVO.attachOriName}'/> " class="btn btn-secondary">다운로드</a>
+			        				<a href="<c:url value='/egovAdmin/recruit/fileDownload.do?fileSaveName=${recruitVO.attachSaveName}&fileOriName=${recruitVO.attachOriName}'/> " class="btn btn-secondary">다운로드</a>
 			                    </c:if>
 		                    </c:if>
 		                    <c:if test="${registerFlag != 'modify'}">

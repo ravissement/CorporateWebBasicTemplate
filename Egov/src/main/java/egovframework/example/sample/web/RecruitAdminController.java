@@ -42,9 +42,9 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  *  Copyright (C) by RAVISSEMENT All right reserved.
  */
 
-@RequestMapping(value = "/admin/recruit/*")
+@RequestMapping(value = "/egovAdmin/recruit/*")
 @Controller
-public class AdminRecruitController {
+public class RecruitAdminController {
 	
 	/** RecruitService */
 	@Resource(name = "recruitService")
@@ -109,7 +109,7 @@ public class AdminRecruitController {
 		int totCnt = recruitService.selectRecruitListTotCntAdmin(searchVO);
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
-		return "admin/recruit/information";
+		return "egovAdmin/recruit/information";
 	}
 	
 	/**
@@ -122,7 +122,7 @@ public class AdminRecruitController {
 	@RequestMapping(value = "/addInformation.do", method = RequestMethod.GET)
 	public String addInformationView(@ModelAttribute("searchVO") SearchVO searchVO, Model model) throws Exception {
 		model.addAttribute("recruitVO", new RecruitVO());
-		return "admin/recruit/informationRegister";
+		return "egovAdmin/recruit/informationRegister";
 	}
 	
 	/**
@@ -141,7 +141,7 @@ public class AdminRecruitController {
 		beanValidator.validate(recruitVO, bindingResult);
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("recruitVO", recruitVO);
-			return "admin/recruit/informationRegister";
+			return "egovAdmin/recruit/informationRegister";
 		}
 		
 		// File Upload
@@ -157,7 +157,7 @@ public class AdminRecruitController {
 		
         recruitService.insertRecruit(recruitVO);
 		status.setComplete();
-		return "forward:/admin/recruit/information.do";
+		return "forward:/egovAdmin/recruit/information.do";
 	}
 	
 	/**
@@ -173,7 +173,7 @@ public class AdminRecruitController {
 		RecruitVO recruitVO = new RecruitVO();
 		recruitVO.setIdx(idx);
 		model.addAttribute(selectRecruit(recruitVO, searchVO));
-		return "admin/recruit/informationRegister";
+		return "egovAdmin/recruit/informationRegister";
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class AdminRecruitController {
 		beanValidator.validate(recruitVO, bindingResult);
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("sampleVO", recruitVO);
-			return "admin/recruit/informationRegister";
+			return "egovAdmin/recruit/informationRegister";
 		}
 		
 		// File Upload
@@ -220,7 +220,7 @@ public class AdminRecruitController {
 
 		recruitService.updateRecruit(recruitVO);
 		status.setComplete();
-		return "forward:/admin/recruit/information.do";
+		return "forward:/egovAdmin/recruit/information.do";
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class AdminRecruitController {
 	public String deleteInformation(RecruitVO recruitVO, @ModelAttribute("searchVO") SearchVO searchVO, SessionStatus status) throws Exception {
 		recruitService.deleteRecruit(recruitVO);
 		status.setComplete();
-		return "forward:/admin/recruit/information.do";
+		return "forward:/egovAdmin/recruit/information.do";
 	}
 	
 }

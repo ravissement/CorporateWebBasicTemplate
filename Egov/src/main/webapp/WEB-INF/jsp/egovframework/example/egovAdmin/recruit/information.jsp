@@ -12,13 +12,13 @@
     /* 글 수정 화면 function */
     function fn_egov_select(id) {
     	document.listForm.selectedId.value = id;
-       	document.listForm.action = "<c:url value='/admin/recruit/updateInformationView.do'/>";
+       	document.listForm.action = "<c:url value='/egovAdmin/recruit/updateInformationView.do'/>";
        	document.listForm.submit();
     }
     
     /* 글 등록 화면 function */
     function fn_egov_addView() {
-       	document.listForm.action = "<c:url value='/admin/recruit/addInformation.do'/>";
+       	document.listForm.action = "<c:url value='/egovAdmin/recruit/addInformation.do'/>";
        	document.listForm.method = "get";
        	document.listForm.submit();
     }
@@ -26,7 +26,7 @@
     /* pagination 페이지 링크 function */
     function fn_egov_link_page(pageNo){
     	document.listForm.pageIndex.value = pageNo;
-    	document.listForm.action = "<c:url value='/admin/recruit/information.do'/>";
+    	document.listForm.action = "<c:url value='/egovAdmin/recruit/information.do'/>";
        	document.listForm.submit();
     }
 </script>
@@ -97,7 +97,7 @@
 	            				<td class="py-3"><a href="javascript:fn_egov_select('<c:out value="${result.idx}"/>')" class="text-dark px-2" style="text-decoration: none;"><c:out value="${result.title}"/>&nbsp;</a></td>
 	            				<td class="text-center py-3">
 	            					<c:if test="${result.attachSaveName != null}">
-	            						<a href="<c:url value='/admin/recruit/fileDownload.do?fileSaveName=${result.attachSaveName}&fileOriName=${result.attachOriName}'/> ">
+	            						<a href="<c:url value='/egovAdmin/recruit/fileDownload.do?fileSaveName=${result.attachSaveName}&fileOriName=${result.attachOriName}'/> ">
 		            						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
 											  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
 											  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>

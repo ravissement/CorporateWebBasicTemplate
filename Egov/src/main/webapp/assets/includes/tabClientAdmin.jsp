@@ -16,7 +16,7 @@ pageName = pageName.substring(pageName.lastIndexOf("/") + 1);
 <!-- tabs -->
 <ul class="nav nav-tabs mt-2">
 	<li class="nav-item">
-		<a class="nav-link <%= pageName.contains("information") ? "active" : "text-muted" %>" href="/egovAdmin/recruit/information.do">information</a>
+		<a class="nav-link <%= pageName.contains("notice") ? "active" : "text-muted" %>" href="/egovAdmin/client/notice.do">공지사항</a>
 	</li>
 </ul>
 </body>

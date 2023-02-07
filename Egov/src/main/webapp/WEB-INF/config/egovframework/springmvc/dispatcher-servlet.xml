@@ -12,7 +12,18 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
-
+	
+	<!-- Session Interceptros -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/egovAdmin/**"/>
+			<mvc:exclude-mapping path="/egovAdmin/login.do"/>
+   			<mvc:exclude-mapping path="/egovAdmin/logout.do"/>
+			<bean id="sessionInterceptor" class="egovframework.example.cmmn.SessionInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!--  -->
+	
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="webBindingInitializer">
             <bean class="egovframework.example.cmmn.web.EgovBindingInitializer"/>

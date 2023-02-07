@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.sample.service.impl.LoginMapper">
+	
+	<resultMap id="Login" type="egovframework.example.sample.service.LoginVO">
+		<result property="id" column="id"/>
+		<result property="pw" column="pw"/>
+	</resultMap>
+	
+	<select id="loginAdmin" parameterType="LoginVO" resultMap="Login">
+			
+			SELECT id, pw
+			FROM EGOV_ADMIN
+			WHERE ID = #{id} 
+			
+	</select>
+
+</mapper>
