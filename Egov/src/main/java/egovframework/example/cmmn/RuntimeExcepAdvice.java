@@ -51,18 +51,18 @@ public class RuntimeExcepAdvice {
 	 * @maxUploadSize="10240000" - Handler's Exception handling Scope 10MB~50MB. 
 	 * */
 	@ExceptionHandler(MaxUploadSizeExceededException.class)
-    public void handleMaxUploadException(MaxUploadSizeExceededException e, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void handleMaxUploadException(MaxUploadSizeExceededException e, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HashMap<String, String> errMsg  = new HashMap<String, String>();
 		fileExcepHandler.occur(e, this.getClass().getName());
 		errMsg.put("error", fileExcepHandler.getUserFriendlyMessage());
 		response.sendRedirect("/cmmn/runtimeError/runtimeError.do?resultMessage=" + URLEncoder.encode(errMsg.get("error"), "UTF-8"));
-    }
+	}
     
-    @ExceptionHandler({DataAccessException.class, RuntimeException.class, TransactionException.class, EgovBizException.class, AccessDeniedException.class, FdlException.class})
-    public void handleExceptions(Exception e, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@ExceptionHandler({DataAccessException.class, RuntimeException.class, TransactionException.class, EgovBizException.class, AccessDeniedException.class, FdlException.class})
+	public void handleExceptions(Exception e, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HashMap<String, String> errMsg  = new HashMap<String, String>();
 		CmmnExcepHndlr.occur(e, this.getClass().getName());
 		errMsg.put("error", CmmnExcepHndlr.getUserFriendlyMessage());
 		response.sendRedirect("/cmmn/runtimeError/runtimeError.do?resultMessage=" + URLEncoder.encode(errMsg.get("error"), "UTF-8"));
-    }
+	}
 }
