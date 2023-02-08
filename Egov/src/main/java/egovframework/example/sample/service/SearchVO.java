@@ -24,7 +24,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @Description : SampleDefaultVO Class
  * @Modification Information
  * @
- * @  수정일			수정자			수정내용
+ * @ 수정일		수정자			수정내용
  * @ ---------		---------		-------------------------------
  * @ 2009.03.16		egov			최초생성
  *

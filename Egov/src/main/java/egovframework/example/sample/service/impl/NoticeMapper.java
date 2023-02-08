@@ -15,7 +15,7 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
  * @see <pre>
  *  == 개정이력(Modification Information) ==
  *
- * @  수정일			수정자			수정내용
+ * @ 수정일		수정자			수정내용
  * @ ---------		---------		-------------------------------
  * @ 2023.02.06		ravissement		최초생성
  *

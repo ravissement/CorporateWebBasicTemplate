@@ -30,7 +30,7 @@ import org.springframework.web.context.request.WebRequest;
  * @Description : EgovBindingInitializer Class
  * @Modification Information
  * @
- * @  수정일			수정자			수정내용
+ * @ 수정일		수정자			수정내용
  * @ ---------		---------		-------------------------------
  * @ 2009.03.16		egov			최초생성
  *

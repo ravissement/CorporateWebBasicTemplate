@@ -22,7 +22,7 @@ import egovframework.example.sample.service.LoginVO;
  * @Description : EgovAdmin Controller Class
  * @Modification Information
  * @
- * @  수정일			수정자			수정내용
+ * @ 수정일		수정자			수정내용
  * @ ---------		---------		-------------------------------
  * @ 2023.02.07		ravissement		최초생성
  *

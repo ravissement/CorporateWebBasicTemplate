@@ -13,7 +13,7 @@ import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
  * @Description : Notice DAO Class
  * @Modification Information
  * @
- * @  수정일			수정자			수정내용
+ * @ 수정일		수정자			수정내용
  * @ ---------		---------		-------------------------------
  * @ 2023.02.06		ravissement		최초생성
  *
